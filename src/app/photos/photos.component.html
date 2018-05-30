@@ -1,15 +1,18 @@
 <div class="container-fluid serasa-padding-top-1">
   <div class="row">
-    <div class="col-lg-1 hidden-sm hidden-md"></div>
-    <div class="col-lg-10">
-      <button id="teste" class="social-hide" (click)="sendData()"></button>
-      <input type="file" accept=".png, .jpg, .jpeg" (change)="changeListener($event);"/>
+    <div class="col-lg-3">
+      <img src="assets/initial_image.png" style="width: 200px; height: 200px;" alt="">
+    </div>
+    <div class="col-lg-9">
+      <img src="assets/camera.png" style="width: 100px; height: 100px;" alt="">
+      
+      <button id="teste" style="background-color: #EA4335; border-color: #EA4335"><i class="fas fa-plus"></i></button>
+      <input type="file" class="social-hide" accept=".png, .jpg, .jpeg" (change)="changeListener($event);"/>
       <div class="row">
         <div class="col-lg-3 social-padding-bottom-1" *ngFor="let photo of photos">
           <img class="img social-padding-bottom-0" style="border-radius: 20px;" alt="" src="{{photo?.photo}}"/>
         </div>
       </div>
     </div>
-    <div class="col-lg-1 hidden-sm hidden-md"></div>
   </div>
 </div>

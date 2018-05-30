@@ -21,7 +21,6 @@ import { InitialInfos } from './initial/initial-infos';
 import { PhotosComponent } from './photos/photos.component';
 import { PostsService } from './_services/posts.service';
 import { PhotosService } from './_services/photos.service';
-import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -32,8 +31,7 @@ import { HeaderComponent } from './header/header.component';
     LayoutComponent,
     AlertComponent,
     SafeHtmlPipe,
-    PhotosComponent,
-    HeaderComponent
+    PhotosComponent
   ],
   imports: [
     HttpModule,
