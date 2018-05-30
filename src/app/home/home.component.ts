@@ -53,31 +53,16 @@ export class HomeComponent implements OnInit {
       }
       this.feeds = newObj;
     }
-    
-    if(this.userLogged == "tony@stark.com"){
-      this.userProfile = {
-        name: localStorage.getItem('user1Name'),
-        login: this.loginUser = {
-          email: localStorage.getItem('user1Email')
-        },
-        profileImage: localStorage.getItem('user1ProfileImage'),
-        post: this.postsUser = {
-          user: localStorage.getItem('user1Email'),
-          post: getPosts[this.userLogged]
-        }
+    this.userProfile = {
+      name: localStorage.getItem('userName'),
+      login: this.loginUser = {
+        email: localStorage.getItem('userLogged')
+      },
+      profileImage: localStorage.getItem('userProfileImage'),
+      post: this.postsUser = {
+        user: localStorage.getItem('userLogged'),
+        post: getPosts[this.userLogged]
       }
-    }else{
-      this.userProfile = {
-        name: localStorage.getItem('user2Name'),
-        login: this.loginUser = {
-          email:  localStorage.getItem('user2Email')
-        },
-        profileImage: localStorage.getItem('user2ProfileImage'),
-        post: this.postsUser = {
-          user: localStorage.getItem('user2Email'),
-          post: JSON.parse(localStorage.getItem('postsUser2'))
-        }
-      }  
     }
   }
 }

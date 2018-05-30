@@ -1,18 +1,16 @@
 <div class="container-fluid serasa-padding-top-1">
   <div class="row">
     <div class="col-lg-4 col-md-12 col-sm-12">
-      <img class="social-downsize" alt="" #image id="image" src="{{userProfile.profileImage}}"/>
+      <img class="social-profileImg" alt="" #image id="image" src="{{userProfile.profileImage}}"/>
       <h3 class="social-h3"><strong>{{userProfile.name}}</strong></h3>
       <p>{{userProfile.login.email}}</p>
-      <p class="social-btn-row" style="color:#26478d;">
-        <a 
-          class="social-btn-sec social-btn-blue-50" 
-          style="border-radius:10px;" 
-          #btnGoToPhotos
-          id="btnGoToPhotos"
-          (click)="goToPhotos();">Promover contato
-        </a>
-      </p>
+      <button 
+        class="btn btn-outline-primary"
+        type="button" 
+        #btnGoToPhotos
+        id="btnGoToPhotos"
+        (click)="goToPhotos();">
+        Go to Photos</button>
     </div>
     <div class="col-lg-1 hidden-sm hidden-md"></div>
     <div class="col-lg-7 col-md-12 col-sm-12">

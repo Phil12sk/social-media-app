@@ -12,11 +12,6 @@ import { InitialInfos } from '../initial/initial-infos';
 })
 export class LoginComponent implements OnInit {
   public login: Login;
-  public user1: Login;
-  public user2: Login;
-  public userProfile: UserProfile;
-  
-  public model: any = {};
   constructor(
     public router: Router,
     public alertComponent: AlertComponent,
@@ -24,18 +19,38 @@ export class LoginComponent implements OnInit {
   ) {}
 
   checkFields(event){
+    let userInfos = JSON.parse(localStorage.getItem('userInfos'));
+    let existingUser = []
+    
+    for(let i = 0; i < userInfos.length; i++){
+      let infos = {}
+      infos['user'] = userInfos[i].login.email;
+      infos['password'] = userInfos[i].login.password
+      existingUser.push(infos);
+    }
+
     if(this.login.email == "" || this.login.password == ""){
       let mes = '<p style="color:red;">Please, fill the fields "Email" and "Password"</p>'
       this.alertComponent.showAlert(mes);
     }else{
-      if(
-      (this.login.email == this.user1.email && this.login.password == this.user1.password)||
-      (this.login.email == this.user2.email && this.login.password == this.user2.password)
-      ){
-        localStorage.setItem('userLogged', this.login.email);
-        this.router.navigate(["/home"]);
-      }else{
-        let mes = '<p style="color:red;">Wrong user or password, check it again, please</p>'
+      let count = 0;
+      for(let i = 0; i < existingUser.length; i++){
+        if(this.login.email != existingUser[i]['user']){
+          count++
+        }else{
+          if(this.login.password != atob(existingUser[i]['password'])){
+            let mes = '<p style="color:red;">Wrong email or password</p>'
+            this.alertComponent.showAlert(mes);
+          }else{
+            localStorage.setItem('userLogged', this.login.email);
+            localStorage.setItem('userName', userInfos[i].name);
+            localStorage.setItem('userProfileImage', userInfos[i]['profileImage']);
+            this.router.navigate(["/home"]);
+          }
+        }
+      }
+      if(count == existingUser.length){
+        let mes = '<p style="color:red;">Wrong email, please, check it again</p>'
         this.alertComponent.showAlert(mes);
       }
     }
@@ -46,17 +61,6 @@ export class LoginComponent implements OnInit {
     this.login = {
       email: "",
       password: ""
-    }
-    this.user1 = {
-      email: localStorage.getItem('user1Email'),
-      password: atob(localStorage.getItem('password1'))
-    }
-    this.user2 = {
-      email: localStorage.getItem('user2Email'),
-      password: atob(localStorage.getItem('password2'))
-    }
-    this.userProfile = {
-      profileImage: localStorage.getItem('user1ProfileImage')
     }
   }
 }

@@ -7,6 +7,10 @@
     border-radius: 10px;
 }
 
+input{
+    padding: .750rem .75rem!important;
+}
+
 /* so the window resize fires within a frame in IE7 */
 .input-styles{
     padding-top: 4px;
@@ -55,6 +59,11 @@
 @keyframes animatebottom { 
     from{ bottom:-100px; opacity:0 } 
     to{ bottom:0; opacity:1 }
+}
+
+.social-profileImg{
+    width: 200px;
+    height: 250px;
 }
 
 .img {
