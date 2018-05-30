@@ -1,20 +1,39 @@
 <div class="container-fluid serasa-padding-top-3">
   <div class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12">
+    <div class="col-lg-3 col-md-12 col-sm-12">
+      <img src="assets/initial_image.png" style="width: 200px; height: 200px;" alt="">
+    </div>
+    <div class="col-lg-1 hidden-sm hidden-md"></div>
+    <div class="col-lg-2 col-md-12 col-sm-12">
       <img class="social-profileImg" alt="" #image id="image" src="{{userProfile.profileImage}}"/>
+    </div>
+    <div class="col-lg-2">
       <h3 class="social-h3"><strong>{{userProfile.name}}</strong></h3>
       <p>{{userProfile.login.email}}</p>
+    </div>
+    <div class="col-lg-3">
       <button 
         class="btn btn-outline-dark"
         type="button" 
         #btnGoToPhotos
         id="btnGoToPhotos"
         (click)="goToPhotos();">
-        Go to Photos</button>
+        Photos</button><br><br>
+        <button 
+        class="btn btn-outline-dark"
+        type="button" 
+        #btnGoToFriends
+        id="btnGoToFriends"
+        (click)="goToFriends();">
+        Friends</button>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 hidden-sm hidden-md"></div>
     <div class="col-lg-7 col-md-12 col-sm-12">
       <div class="row">
         <div class="col-lg-10">
+          <p>What's happening</p>
           <textarea 
             class="form-control" 
             [(ngModel)]="model.post"
@@ -22,7 +41,7 @@
             id="post" rows="3">
           </textarea>
           <div class="social-padding-top-1">
-            <button (click)="postText();" type="button" class="btn btn-primary btn-sm">Post</button>
+            <button (click)="postText();" type="button" class="btn btn-sm" style="background-color: #fbbc05;">Post</button>
             <button (click)="erasePostArea();" type="button" class="btn btn-danger btn-sm">Erase</button>
           </div>
         </div>
