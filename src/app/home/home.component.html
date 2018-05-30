@@ -1,0 +1,39 @@
+<div class="container-fluid serasa-padding-top-1">
+  <div class="row">
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <img class="social-downsize" alt="" #image id="image" src="{{userProfile.profileImage}}"/>
+      <h3 class="social-h3"><strong>{{userProfile.name}}</strong></h3>
+      <p>{{userProfile.login.email}}</p>
+      <p class="social-btn-row" style="color:#26478d;">
+        <a 
+          class="social-btn-sec social-btn-blue-50" 
+          style="border-radius:10px;" 
+          #btnGoToPhotos
+          id="btnGoToPhotos"
+          (click)="goToPhotos();">Promover contato
+        </a>
+      </p>
+    </div>
+    <div class="col-lg-1 hidden-sm hidden-md"></div>
+    <div class="col-lg-7 col-md-12 col-sm-12">
+      <div class="row">
+        <div class="col-lg-10">
+          <textarea 
+            class="form-control" 
+            [(ngModel)]="model.post"
+            #post="ngModel"
+            id="post" rows="3">
+          </textarea>
+          <div class="social-padding-top-1">
+            <button (click)="postText();" type="button" class="btn btn-primary btn-sm">Post</button>
+            <button (click)="erasePostArea();" type="button" class="btn btn-danger btn-sm">Erase</button>
+          </div>
+        </div>
+        <div class="col-lg-12" *ngFor="let feed of feeds">
+          <h4 class="social-h4"><strong>{{userProfile?.name}}</strong></h4>
+          <p>{{feed?.post}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

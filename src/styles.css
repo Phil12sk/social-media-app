@@ -1,1 +1,285 @@
-/* You can add global styles to this file, and also import other style files */
+.social-padding-content{
+    box-sizing:border-box;
+    padding:20px
+}
+
+.social-radius{
+    border-radius: 10px;
+}
+
+/* so the window resize fires within a frame in IE7 */
+.input-styles{
+    padding-top: 4px;
+    color: #999999;
+}
+#loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 1s;
+    animation-name: animatebottom;
+    animation-duration: 1s
+}
+
+@-webkit-keyframes animatebottom {
+    from { bottom:-100px; opacity:0 } 
+    to { bottom:0px; opacity:1 }
+}
+
+@keyframes animatebottom { 
+    from{ bottom:-100px; opacity:0 } 
+    to{ bottom:0; opacity:1 }
+}
+
+.img {
+    position: relative;
+    float: left;
+    width:  200px;
+    height: 200px;
+}
+.social-resize{
+    height:auto!important;
+    width:100%
+}
+.social-downsize{
+    height:auto!important;
+    max-width:100%!important
+}
+.social-input-padding{
+  padding:10px;
+}
+.social-legalfooter-text .social-columns{
+    padding-bottom:0
+}
+.social-columns{
+    clear:both;
+    margin:0 auto;
+    width:980px;
+    padding:0 10px 10px
+}
+.social-columns::after{
+    clear:both;
+    content:' ';
+    display:block;
+    height:0;
+    visibility:hidden;
+    overflow:hidden
+}
+.social-columns .social-columns{
+    margin:0 -10px;
+    padding:0;
+    width:auto
+}
+.social-default .social-columns{
+    padding-left:0
+}
+.social-left{
+    text-align:left!important;
+}
+.social-hide{
+    display:none
+}
+.social-radius{
+  border-radius: 10px;
+}
+.social-gray-1{
+  color: rgb(102, 102, 102);
+}
+.social-bold{
+    font-weight:600
+}
+.social-light{
+    font-family: "Roboto Medium", "Roboto Regular", "Roboto";
+    font-size: 12px;
+    line-height: normal
+}
+
+.social-light-1{
+    font-family: "Roboto Light", "Roboto Regular", "Roboto";
+    font-size: 12px;
+    line-height: normal
+}
+.social-h1{
+    font-size:2.5rem;
+    line-height:2.8125rem
+}
+.social-h2{
+    font-size:1.875rem;
+    line-height:2.1875rem;
+}
+.social-h3{
+    font-size:1.5625rem;
+    line-height:1.875rem
+}
+.social-h4{
+    font-size:1.25rem;
+    line-height:1.5625rem
+}
+.social-small{
+    font-size:.775rem;
+    line-height:1.0rem
+}
+h1,h2,h3,h4,h5,h6{
+    font-size:1rem;
+    line-height:1.625rem;
+    font-weight:normal;
+}
+.social-textcolor-blue-50{
+    color:#2e5485
+}
+.social-gray-10{
+  color: rgb(102, 102, 102);
+}
+p{
+    font-size:1rem;
+    line-height:1.625rem;
+    padding:0 0 15px;
+}
+a{
+    color:#3b6caa;
+    text-decoration:none
+}
+a::before,a::after{
+    text-decoration:underline
+}
+a::before,a::after{
+    text-decoration:none
+}
+a:hover{
+    text-decoration:underline
+}
+.social-padding-top-0{
+    padding-top:0!important
+}
+.social-padding-bottom-0{
+    padding-bottom:0!important
+}
+.social-padding-top-1{
+    padding-top:20px!important
+}
+.social-padding-bottom-1{
+    padding-bottom:20px!important
+}
+.social-padding-top-2{
+    padding-top:40px!important
+}
+.social-padding-bottom-2{
+    padding-bottom:40px!important
+}
+.social-padding-top-3{
+    padding-top:60px!important
+}
+.social-padding-bottom-3{
+    padding-bottom:60px!important
+}
+.social-padding-content{
+    box-sizing:border-box;
+    padding:20px
+}
+
+.has-float-label {
+    display: block;
+    position: relative; 
+}
+.has-float-label label, .has-float-label > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: text;
+    font-size: 75%;
+    opacity: 1;
+    -webkit-transition: all .2s;
+            transition: all .2s;
+    top: -.2em;
+    left: 12px;
+    z-index: 3;
+    line-height: 1;
+    padding: 5px 1px; 
+}
+.has-float-label label::after, .has-float-label > span::after {
+    display: none;
+    position: absolute;
+    height: 2px;
+    top: 50%;
+    left: -.2em;
+    right: -.2em;
+    z-index: -1; 
+}
+.has-float-label .form-control::-webkit-input-placeholder {
+    opacity: 1;
+    -webkit-transition: all .2s;
+            transition: all .2s; 
+}
+.has-float-label .form-control::-moz-placeholder {
+    opacity: 1;
+    transition: all .2s; 
+}
+.has-float-label .form-control:-ms-input-placeholder {
+    opacity: 1;
+    transition: all .2s; 
+}
+.has-float-label .form-control::placeholder {
+    opacity: 1;
+    -webkit-transition: all .2s;
+            transition: all .2s; 
+}
+.has-float-label .form-control:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+    opacity: 0; 
+}
+.has-float-label .form-control:placeholder-shown:not(:focus)::-moz-placeholder {
+    opacity: 0; 
+}
+.has-float-label .form-control:placeholder-shown:not(:focus):-ms-input-placeholder {
+    opacity: 0; 
+}
+.has-float-label .form-control:placeholder-shown:not(:focus)::placeholder {
+    opacity: 0; 
+}
+.has-float-label .form-control:placeholder-shown:not(:focus) + * {
+    font-size: 90% !important;
+    opacity: .5;
+    top: .3em;
+    font-weight: normal; 
+}
+
+.input-group .has-float-label {
+    display: table-cell; 
+}
+.input-group .has-float-label .form-control {
+    border-radius: 4px; 
+}
+.input-group .has-float-label:not(:last-child) .form-control {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0; 
+}
+.input-group .has-float-label:not(:first-child) .form-control {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    margin-left: -1px; 
+}

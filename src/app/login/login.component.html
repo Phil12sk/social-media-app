@@ -1,0 +1,39 @@
+<div class="container-fluid serasa-padding-top-1">
+  <div class="row">
+    <div class="col-lg-4 hidden-sm hidden-md"></div>
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <form>
+        <div class="form-group">
+          <span class="form-group has-float-label">
+            <input 
+              class="form-control serasa-input-padding serasa-radius"
+              [(ngModel)]="login.email"
+              name="email"
+              #email="ngModel"
+              id="email"
+              type="text"
+              placeholder=" "
+            />
+            <label for="email" class="input-styles">Email</label>
+          </span>
+        </div>
+        <div class="form-group">
+          <span class="form-group has-float-label">
+            <input 
+              class="form-control serasa-input-padding serasa-radius"
+              [(ngModel)]="login.password"
+              name="password"
+              #password="ngModel"
+              id="password"
+              type="password"
+              placeholder=" "
+            />
+            <label for="password" class="input-styles">Password</label>
+          </span>
+        </div>
+        <button class="btn btn-primary" (click)="checkFields($event);">Login</button>
+      </form>
+    </div>
+    <div class="col-lg-4 hidden-sm hidden-md"></div>
+  </div>
+</div>
