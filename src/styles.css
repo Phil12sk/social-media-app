@@ -64,6 +64,7 @@ input{
 .social-profileImg{
     width: 150px;
     height: 150px;
+    border-radius: 100px;
 }
 
 p,h1,h2,h3,h4{
