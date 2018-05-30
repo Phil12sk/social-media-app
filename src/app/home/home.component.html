@@ -1,18 +1,17 @@
-<div class="container-fluid serasa-padding-top-1">
+<div class="container-fluid serasa-padding-top-3">
   <div class="row">
     <div class="col-lg-4 col-md-12 col-sm-12">
       <img class="social-profileImg" alt="" #image id="image" src="{{userProfile.profileImage}}"/>
       <h3 class="social-h3"><strong>{{userProfile.name}}</strong></h3>
       <p>{{userProfile.login.email}}</p>
       <button 
-        class="btn btn-outline-primary"
+        class="btn btn-outline-dark"
         type="button" 
         #btnGoToPhotos
         id="btnGoToPhotos"
         (click)="goToPhotos();">
         Go to Photos</button>
     </div>
-    <div class="col-lg-1 hidden-sm hidden-md"></div>
     <div class="col-lg-7 col-md-12 col-sm-12">
       <div class="row">
         <div class="col-lg-10">

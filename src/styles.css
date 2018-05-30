@@ -62,9 +62,15 @@ input{
 }
 
 .social-profileImg{
-    width: 200px;
-    height: 250px;
+    width: 150px;
+    height: 150px;
 }
+
+p,h1,h2,h3,h4{
+    color: #000000
+}
+
+
 
 .img {
     position: relative;
