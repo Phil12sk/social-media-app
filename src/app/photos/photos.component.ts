@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AlertComponent } from '../alert/alert.component';
 import { Photo } from '../_models/photo.model';
 import { EventListener } from '@angular/core/src/debug/debug_node';
+declare var $: any;
 
 @Component({
   selector: 'app-photos',
@@ -23,10 +24,6 @@ export class PhotosComponent implements OnInit {
   }
 
   readThis(inputValue: any) : void {
-    window.addEventListener("storage", storageHandler, false);
-    var storageHandler = function () {
-      console.log('teste');
-    };
     let file:File = inputValue.files[0];
     let fileName = inputValue.files[0].name;
     var myReader:FileReader = new FileReader();
@@ -34,34 +31,19 @@ export class PhotosComponent implements OnInit {
     myReader.onloadend = function(e){
       localStorage.setItem('imageUploaded', myReader.result);
       localStorage.setItem('namePhoto', fileName);
+      document.getElementById('teste').click();
     }
-    window.addEventListener('storage', function(){
-      console.log('foi aqui')
-    })
     myReader.readAsDataURL(file);
-    //this.photosService.uploadPhoto(photo)
-  }
-  uploadFile(event){
-    console.log('1');
-    /*console.log('1');
-    let file = event.target.files[0];
-    let ready = false;
-    let reader = new FileReader();
-    console.log(reader.result);
-    reader.onloadend = function(){
-      localStorage.setItem('imageUploaded', reader.result);
-      localStorage.setItem('namePhoto', event.target.files[0].name);
-      check();
-    }*/
-    const fileReader: FileReader = new FileReader();
-    fileReader.onloadend = (event) => {
-      console.log(event)
-      localStorage.setItem('imageUploaded', fileReader.result);
-      //localStorage.setItem('namePhoto', event);
-    }
-    //reader.readAsDataURL(file);
   }
 
+  sendData(){
+    this.photo = {
+      namePhoto: localStorage.getItem('namePhoto'),
+      photo: localStorage.getItem('imageUploaded'),
+      user: localStorage.getItem('userLogged')
+    }
+    this.photosService.uploadPhoto(this.photo)
+  }
 
   ngOnInit() {
     let getPhotos = localStorage.getItem('photosUser');

@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-lg-1 hidden-sm hidden-md"></div>
     <div class="col-lg-10">
+      <button id="teste" class="social-hide" (click)="sendData()"></button>
       <input type="file" accept=".png, .jpg, .jpeg" (change)="changeListener($event);"/>
       <div class="row">
         <div class="col-lg-3 social-padding-bottom-1" *ngFor="let photo of photos">

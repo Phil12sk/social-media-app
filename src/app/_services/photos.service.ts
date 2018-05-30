@@ -25,6 +25,6 @@ export class PhotosService{
             }
             localStorage.setItem('photosUser', JSON.stringify([this.newPhoto]));
         }
-        //window.location.reload();
+        window.location.reload();
     }
 }
