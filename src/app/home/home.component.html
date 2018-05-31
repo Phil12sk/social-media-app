@@ -4,8 +4,8 @@
     <div class="col-lg-2 col-md-12 col-sm-12">
       <img class="social-profileImg" alt="" #image id="image" src="{{userProfile.profileImage}}"/>
     </div>
-    <div class="col-lg-5">
-      <h3 class="social-h3"><strong>{{userProfile.name}}</strong></h3>
+    <div class="col-lg-6">
+      <h3 class="social-h3 social-padding-top-2"><strong>{{userProfile.name}}</strong></h3>
       <p>{{userProfile.login.email}}</p>
     </div>
     <div class="col-lg-2">
@@ -22,10 +22,8 @@
         #btnGoToFriends
         id="btnGoToFriends"
         [routerLink]="['/friends']">
-        Friends</button>
-    </div>
-    <div class="col-lg-2">
-      <button 
+        Friends</button><br><br>
+        <button 
         class="btn btn-pri text-center"
         type="button" 
         #btnLogout
