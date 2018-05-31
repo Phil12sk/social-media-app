@@ -3,7 +3,7 @@
     <div class="col-lg-6">
       <img src="assets/initial_image.png" style="width: 200px; height: 200px;" alt="">
     </div>
-    <div class="col-lg-6 social-padding-top-2">
+    <div class="col-lg-5 social-padding-top-2">
       <img src="assets/camera.png" style="width: 100px; height: 100px;" alt=""/><br>
       <button 
         (click)="addPhotos();" 
@@ -12,6 +12,11 @@
           Add photos</button>
       <input id="openPhotoSelection" type="file" class="social-hide" accept=".png, .jpg, .jpeg" (change)="changeListener($event);"/>
       <button class="social-hide" (click)="sendData();" id="btnSendData"></button>
+    </div>
+    <div class="col-lg-1 social-padding-top-2">
+      <a href="" style="color: #000000; font-size: 1.5rem" [routerLink]="['/home']">
+        <i class="fas fa-arrow-alt-circle-left"></i>
+      </a>
     </div>
   </div>
   <div class="row">
