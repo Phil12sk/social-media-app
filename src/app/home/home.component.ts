@@ -51,6 +51,7 @@ export class HomeComponent implements OnInit {
       let newObj: any = []
       for(let i = (jsonPosts.length - 1); i >= 0; i--){
         if(jsonPosts[i]['user'] == this.userLogged){
+          console.log(jsonPosts[i])
           newObj.push(jsonPosts[i])
         }
       }

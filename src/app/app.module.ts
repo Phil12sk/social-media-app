@@ -23,7 +23,7 @@ import { PostsService } from './_services/posts.service';
 import { PhotosService } from './_services/photos.service';
 import { LoginService } from './_services/login.service';
 import { PerfilComponent } from './perfil/perfil.component';
-import { FriendsComponent } from './friends/friends.component';
+import { FollowComponent } from './follow/follow.component';
 
 
 @NgModule({
@@ -36,7 +36,8 @@ import { FriendsComponent } from './friends/friends.component';
     SafeHtmlPipe,
     PhotosComponent,
     PerfilComponent,
-    FriendsComponent
+    FollowComponent,
+    FollowComponent
   ],
   imports: [
     HttpModule,
