@@ -71,6 +71,23 @@ p,h1,h2,h3,h4{
     color: #000000
 }
 
+.btn-sec{
+    background: transparent;
+    border-color: #000000;
+    color: #000000;
+}
+.btn-sec:hover{
+    background-color: #000000;
+    color: #ffffff;
+    border-color: #000000
+}
+
+.btn-pri{
+    background-color: #000000;
+    border-color: #000000;
+    color: #ffffff;
+}
+
 
 
 .img {

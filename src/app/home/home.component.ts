@@ -50,9 +50,12 @@ export class HomeComponent implements OnInit {
       let jsonPosts = JSON.parse(this.getPosts);
       let newObj: any = []
       for(let i = (jsonPosts.length - 1); i >= 0; i--){
-        newObj.push(jsonPosts[i])
+        if(jsonPosts[i]['user'] == this.userLogged){
+          newObj.push(jsonPosts[i])
+        }
       }
       this.feeds = newObj;
+      console.log(this.feeds)
     }
   }
 
@@ -65,8 +68,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.model.post = "";
-    this.checkUserLogged();
     localStorage.setItem('firstAccess', 'true');
+    this.checkUserLogged();
     this.loadPosts();
     this.userProfile = {
       name: localStorage.getItem('userName'),
