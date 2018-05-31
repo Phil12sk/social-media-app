@@ -31,7 +31,7 @@ export class PhotosComponent implements OnInit {
     myReader.onloadend = function(e){
       localStorage.setItem('imageUploaded', myReader.result);
       localStorage.setItem('namePhoto', fileName);
-      document.getElementById('teste').click();
+      document.getElementById('btnSendData').click();
     }
     myReader.readAsDataURL(file);
   }
@@ -43,6 +43,10 @@ export class PhotosComponent implements OnInit {
       user: localStorage.getItem('userLogged')
     }
     this.photosService.uploadPhoto(this.photo)
+  }
+
+  addPhotos(){
+    document.getElementById('openPhotoSelection').click();
   }
 
   ngOnInit() {
