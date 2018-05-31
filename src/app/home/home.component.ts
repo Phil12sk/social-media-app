@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { AlertComponent } from '../alert/alert.component';
 import { Post } from '../_models/post.model';
 import { PostsService } from '../_services/posts.service';
+import { LoginService } from '../_services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -15,13 +16,15 @@ export class HomeComponent implements OnInit {
   public userProfile: UserProfile;
   public loginUser: Login;
   public postsUser: Post;
-  public model: any = {}
+  public model: any = {};
   public userLogged = localStorage.getItem('userLogged');
-  public feeds: any
+  public getPosts = localStorage.getItem('postsUser');
+  public feeds: any;
   constructor(
     public router: Router, 
     public alertComponent: AlertComponent,
-    public postsService: PostsService
+    public postsService: PostsService,
+    public loginService: LoginService
   ) { }
 
   goToPhotos(){
@@ -39,20 +42,32 @@ export class HomeComponent implements OnInit {
       let mes = '<p style="color:red;">Please, fill the textarea field to post something</p>';
       this.alertComponent.showAlert(mes)
     }
-    this.model.post = "";
+    this.model.post = ""; 
   }
 
-  ngOnInit() {
-    this.model.post = "";
-    let getPosts = localStorage.getItem('postsUser');
-    if(getPosts.length > 0){
-      let jsonPosts = JSON.parse(getPosts);
+  loadPosts(){
+    if(this.getPosts.length > 0){
+      let jsonPosts = JSON.parse(this.getPosts);
       let newObj: any = []
       for(let i = (jsonPosts.length - 1); i >= 0; i--){
         newObj.push(jsonPosts[i])
       }
       this.feeds = newObj;
     }
+  }
+
+  checkUserLogged(){
+    let checkLogin = this.loginService.checkUserLogged();
+    if(checkLogin == false){
+      this.router.navigate(["/login"])
+    }
+  }
+
+  ngOnInit() {
+    this.model.post = "";
+    this.checkUserLogged();
+    localStorage.setItem('firstAccess', 'true');
+    this.loadPosts();
     this.userProfile = {
       name: localStorage.getItem('userName'),
       login: this.loginUser = {
@@ -61,8 +76,9 @@ export class HomeComponent implements OnInit {
       profileImage: localStorage.getItem('userProfileImage'),
       post: this.postsUser = {
         user: localStorage.getItem('userLogged'),
-        post: getPosts[this.userLogged]
+        post: this.getPosts[this.userLogged]
       }
     }
+    this.loadPosts();
   }
 }

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AlertComponent } from '../alert/alert.component';
 import { Photo } from '../_models/photo.model';
 import { EventListener } from '@angular/core/src/debug/debug_node';
+import { LoginService } from '../_services/login.service';
 declare var $: any;
 
 @Component({
@@ -17,7 +18,8 @@ export class PhotosComponent implements OnInit {
   constructor(
     public router: Router, 
     public alertComponent: AlertComponent,
-    public photosService: PhotosService
+    public photosService: PhotosService,
+    public loginService: LoginService
   ) { }
   changeListener($event) : void {
     this.readThis($event.target);
@@ -49,7 +51,15 @@ export class PhotosComponent implements OnInit {
     document.getElementById('openPhotoSelection').click();
   }
 
+  checkUserLogged(){
+    let checkLogin = this.loginService.checkUserLogged();
+    if(checkLogin == false){
+      this.router.navigate(["/login"])
+    }
+  }
+
   ngOnInit() {
+    this.checkUserLogged();
     let getPhotos = localStorage.getItem('photosUser');
     if(getPhotos.length > 0){
       let jsonPhotos = JSON.parse(getPhotos);

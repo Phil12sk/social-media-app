@@ -21,6 +21,9 @@ import { InitialInfos } from './initial/initial-infos';
 import { PhotosComponent } from './photos/photos.component';
 import { PostsService } from './_services/posts.service';
 import { PhotosService } from './_services/photos.service';
+import { LoginService } from './_services/login.service';
+import { PerfilComponent } from './perfil/perfil.component';
+import { FriendsComponent } from './friends/friends.component';
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { PhotosService } from './_services/photos.service';
     LayoutComponent,
     AlertComponent,
     SafeHtmlPipe,
-    PhotosComponent
+    PhotosComponent,
+    PerfilComponent,
+    FriendsComponent
   ],
   imports: [
     HttpModule,
@@ -54,7 +59,8 @@ import { PhotosService } from './_services/photos.service';
     AlertComponent,
     InitialInfos,
     PostsService,
-    PhotosService
+    PhotosService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
