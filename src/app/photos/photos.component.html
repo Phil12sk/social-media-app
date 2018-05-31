@@ -1,9 +1,10 @@
 <div class="container-fluid serasa-padding-top-1">
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-6">
       <img src="assets/initial_image.png" style="width: 200px; height: 200px;" alt="">
     </div>
     <div class="col-lg-6 social-padding-top-2">
+      <img src="assets/camera.png" style="width: 100px; height: 100px;" alt=""/><br>
       <button 
         (click)="addPhotos();" 
         style="background-color: #EA4335; border-color: #EA4335">
@@ -12,11 +13,8 @@
       <input id="openPhotoSelection" type="file" class="social-hide" accept=".png, .jpg, .jpeg" (change)="changeListener($event);"/>
       <button class="social-hide" (click)="sendData();" id="btnSendData"></button>
     </div>
-    <div class="col-lg-3">
-      <img src="assets/camera.png" style="width: 100px; height: 100px;" alt="">
-    </div>
   </div>
-  <div class="row">
+  <div class="row social-padding-top-2">
     <div class="col-lg-3"></div>
     <div class="col-lg-9">
       <div class="row">
