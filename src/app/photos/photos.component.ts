@@ -5,7 +5,6 @@ import { AlertComponent } from '../alert/alert.component';
 import { Photo } from '../_models/photo.model';
 import { EventListener } from '@angular/core/src/debug/debug_node';
 import { LoginService } from '../_services/login.service';
-declare var $: any;
 
 @Component({
   selector: 'app-photos',

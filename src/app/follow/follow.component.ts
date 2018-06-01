@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserProfile } from '../_models/userProfile.model';
 import { Login } from '../_models/login.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-follow',
@@ -13,9 +14,9 @@ export class FollowComponent implements OnInit {
   public loginUser: Login;
   public users: any;
 
-  constructor() { }
+  constructor(public router: Router) { }
 
-  teste(){
+  loadFollowing(){
     let userInfos = JSON.parse(localStorage.getItem('userInfos'));
     let newObj = [];
     for(let i = 0; i < userInfos.length; i++){
@@ -23,15 +24,20 @@ export class FollowComponent implements OnInit {
         let item = {}
         item['profileImage'] = userInfos[i]['profileImage'];
         item['name'] = userInfos[i]['name'];
+        item['userEmail'] = userInfos[i]['login']['email'];
         newObj.push(item);
       }
     }
     this.users = newObj;
-    console.log(this.users)
+  }
+
+  perfilChoosed(event){
+    localStorage.setItem('perfilChoosed', event.target.id);
+    this.router.navigate(['/profile'])
   }
 
   ngOnInit() {
-    this.teste();
+    this.loadFollowing()
     this.userProfile = {
       name: localStorage.getItem('userName'),
       login: this.loginUser = {

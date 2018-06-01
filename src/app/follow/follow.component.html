@@ -11,10 +11,14 @@
   </div>
   <div class="row social-padding-top-3">
     <div class="col-lg-4 text-center" *ngFor="let user of users">
-      <a href="" [routerLink]="['/perfil']">
-        <img src="{{user?.profileImage}}" class="social-profileImg" alt=""/>
-        <h4 class="social-h4 social-padding-top-1"><strong>{{user?.name}}</strong></h4>
-      </a>
+      <img src="{{user?.profileImage}}" id="{{user?.userEmail}}" class="social-profileImg" alt=""/>
+      <h4 class="social-h4 social-padding-top-1" id="{{user?.userEmail}}"><strong>{{user?.name}}</strong></h4>
+      <button 
+        class="btn btn-sec"
+        type="button"
+        id="{{user?.userEmail}}"
+        (click)="perfilChoosed($event);">
+        View profile</button>
     </div>
   </div>
 </div>

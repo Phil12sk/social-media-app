@@ -22,8 +22,9 @@ import { PhotosComponent } from './photos/photos.component';
 import { PostsService } from './_services/posts.service';
 import { PhotosService } from './_services/photos.service';
 import { LoginService } from './_services/login.service';
-import { PerfilComponent } from './perfil/perfil.component';
+import { UserUnfollowedService } from './_services/userUnfollowed.service';
 import { FollowComponent } from './follow/follow.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -35,9 +36,9 @@ import { FollowComponent } from './follow/follow.component';
     AlertComponent,
     SafeHtmlPipe,
     PhotosComponent,
-    PerfilComponent,
     FollowComponent,
-    FollowComponent
+    FollowComponent,
+    ProfileComponent
   ],
   imports: [
     HttpModule,
@@ -61,7 +62,8 @@ import { FollowComponent } from './follow/follow.component';
     InitialInfos,
     PostsService,
     PhotosService,
-    LoginService
+    LoginService,
+    UserUnfollowedService
   ],
   bootstrap: [AppComponent]
 })

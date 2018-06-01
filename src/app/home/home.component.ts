@@ -51,20 +51,23 @@ export class HomeComponent implements OnInit {
       let newObj: any = []
       for(let i = (jsonPosts.length - 1); i >= 0; i--){
         if(jsonPosts[i]['user'] == this.userLogged){
-          console.log(jsonPosts[i])
           newObj.push(jsonPosts[i])
         }
       }
       this.feeds = newObj;
-      console.log(this.feeds)
     }
   }
 
   checkUserLogged(){
     let checkLogin = this.loginService.checkUserLogged();
     if(checkLogin == false){
-      this.router.navigate(["/login"])
+      this.router.navigate(["/"])
     }
+  }
+
+  logout(){
+    localStorage.setItem('userLogged','');
+    this.router.navigate(['/'])    
   }
 
   ngOnInit() {
