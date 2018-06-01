@@ -24,7 +24,6 @@ export class ProfileComponent implements OnInit {
 
   	loadPosts(){
   		if(this.getPosts.length > 0){
-  			console.log(this.getPosts)
       		let jsonPosts = JSON.parse(this.getPosts);
       		let newObj: any = []
       		for(let i = (jsonPosts.length - 1); i >= 0; i--){

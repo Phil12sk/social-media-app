@@ -7,6 +7,6 @@ export class UserUnfollowService {
 			user: userLogged,
 			userUnfolllowed: userID
 		}
-		console.log(this.userUnfollowed)
+		localStorage.setItem('usersUnfollowed', JSON.stringify(this.userUnfollowed));
 	}
 }

@@ -18,6 +18,7 @@ export class FollowComponent implements OnInit {
 
   loadFollowing(){
     let userInfos = JSON.parse(localStorage.getItem('userInfos'));
+    let usersUnfollowed = JSON.parse(localStorage.getItem('usersUnfollowed'));
     let newObj = [];
     for(let i = 0; i < userInfos.length; i++){
       if(this.userLogged != userInfos[i]['login']['email']){
