@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   postText(){
     let d = new Date();
-    let currentTime = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
+    let currentTime = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear() + " at " + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
     if(this.model.post != ""){
       this.postsService.sendPost(this.userProfile.name, this.model.post, currentTime);
     }else{
@@ -49,7 +49,6 @@ export class HomeComponent implements OnInit {
 
   loadPosts(){
     if(this.getPosts.length > 0){
-      console.log(this.getPosts)
       let jsonPosts = JSON.parse(this.getPosts);
       let newObj: any = []
       for(let i = (jsonPosts.length - 1); i >= 0; i--){
