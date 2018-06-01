@@ -36,8 +36,10 @@ export class HomeComponent implements OnInit {
   }
 
   postText(){
+    let d = new Date();
+    let currentTime = d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
     if(this.model.post != ""){
-      this.postsService.sendPost(this.model.post);
+      this.postsService.sendPost(this.userProfile.name, this.model.post, currentTime);
     }else{
       let mes = '<p style="color:red;">Please, fill the textarea field to post something</p>';
       this.alertComponent.showAlert(mes)
@@ -47,12 +49,11 @@ export class HomeComponent implements OnInit {
 
   loadPosts(){
     if(this.getPosts.length > 0){
+      console.log(this.getPosts)
       let jsonPosts = JSON.parse(this.getPosts);
       let newObj: any = []
       for(let i = (jsonPosts.length - 1); i >= 0; i--){
-        if(jsonPosts[i]['user'] == this.userLogged){
-          newObj.push(jsonPosts[i])
-        }
+        newObj.push(jsonPosts[i])
       }
       this.feeds = newObj;
     }

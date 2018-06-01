@@ -4,21 +4,25 @@ import { Post } from "../_models/post.model";
 export class PostsService{
     constructor(){}
     public newPost: Post
-    sendPost(post){
-        let userLogged = localStorage.getItem('userLogged');
+    sendPost(userName, post, time){
+        let userEmail = localStorage.getItem('userLogged');
         let checkPosts = localStorage.getItem('postsUser');
         if(checkPosts.length > 0){
             let posts = JSON.parse(localStorage.getItem('postsUser'))
             this.newPost = {
-                user: userLogged,
-                post: post
+                userName: userName,
+                userEmail: userEmail,
+                post: post,
+                timePosted: time
             }
             posts.push(this.newPost);
             localStorage.setItem('postsUser', JSON.stringify(posts));
         }else{
             this.newPost = {
-                user: userLogged,
-                post: post
+                userName: userName,
+                userEmail: userEmail,
+                post: post,
+                timePosted: time
             }
             localStorage.setItem('postsUser', JSON.stringify([this.newPost]));
         }

@@ -12,9 +12,7 @@ input{
 }
 
 /* so the window resize fires within a frame in IE7 */
-div a {
-    text-decoration-color: black;
-}
+
 .input-styles{
     padding-top: 4px;
     color: #999999;

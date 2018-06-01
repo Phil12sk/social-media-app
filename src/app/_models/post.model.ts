@@ -1,4 +1,6 @@
 export interface Post {
-    user?: string,
-    post?: string
+    userName?: string,
+    userEmail?: string,
+    post?: string,
+    timePosted?: string
 }
