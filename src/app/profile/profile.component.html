@@ -13,6 +13,9 @@
                 <a href="" style="color: #000000; font-size: 1.5rem" [routerLink]="['/following']">
                     <i class="fas fa-arrow-alt-circle-left"></i>
                 </a><br>
+                <a href="" style="color: #000000; font-size: 1.5rem" [routerLink]="['/home']">
+                    <i class="fas fa-home"></i>
+                </a><br>
                 <a href="" style="color: #000000; font-size: 1.5rem" [routerLink]="['/']">
                     <i class="fas fa-sign-out-alt"></i>
                 </a>
@@ -20,16 +23,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-1 text-center">
-            <button 
-                class="btn btn-sec"
-                type="button" 
-                #btnGoToFriends
-                id="btnGoToFriends"
-                [routerLink]="['/home']">
-                Home
-            </button>
-        </div>
+        <div class="col-lg-1 col-md-12 col-sm-12"></div>
         <div class="col-lg-9 text-center">
             <button 
                 class="btn btn-sec"
