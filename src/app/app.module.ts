@@ -22,7 +22,7 @@ import { PhotosComponent } from './photos/photos.component';
 import { PostsService } from './_services/posts.service';
 import { PhotosService } from './_services/photos.service';
 import { LoginService } from './_services/login.service';
-import { UserUnfollowedService } from './_services/userUnfollowed.service';
+import { UserUnfollowService } from './_services/userUnfollow.service';
 import { FollowComponent } from './follow/follow.component';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -63,7 +63,7 @@ import { ProfileComponent } from './profile/profile.component';
     PostsService,
     PhotosService,
     LoginService,
-    UserUnfollowedService
+    UserUnfollowService
   ],
   bootstrap: [AppComponent]
 })

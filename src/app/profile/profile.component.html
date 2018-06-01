@@ -26,8 +26,9 @@
             <button 
                 class="btn btn-sec"
                 type="button" 
-                #btnGoToFriends
-                id="btnGoToFriends"
+                #{{userProfile?.login.email}}
+                id="{{userProfile?.login.email}}"
+                (click)="unfollowUser($event);"
                 [routerLink]="['/following']">
                 Unfollow
             </button>

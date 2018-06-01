@@ -1,4 +1,4 @@
-export interface UserUnfollowed {
+export interface UserUnfollow {
 	user?: string,
 	userUnfolllowed?: string
 }

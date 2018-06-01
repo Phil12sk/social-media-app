@@ -1,7 +1,7 @@
-import { UserUnfollowed } from '../_models/user-unfollowed.model';
-export class UserUnfollowedService {
-	private userUnfollowed: UserUnfollowed;
-	unfollowedUser(userID){
+import { UserUnfollow } from '../_models/userUnfollow.model';
+export class UserUnfollowService {
+	private userUnfollowed: UserUnfollow;
+	unfollowUser(userID){
 		let userLogged = localStorage.getItem('userLogged');
 		this.userUnfollowed = {
 			user: userLogged,

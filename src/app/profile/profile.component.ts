@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserUnfollowedService } from '../_services/userUnfollowed.service';
+import { UserUnfollowService } from '../_services/userUnfollow.service';
 import { UserProfile } from '../_models/userProfile.model';
 import { Login } from '../_models/login.model';
 import { Photo } from '../_models/photo.model';
@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   	public photos: any;
 
   	constructor(
-  		public userUnfollowedService: UserUnfollowedService) { }
+  		public userUnfollowService: UserUnfollowService) { }
 
   	loadPosts(){
   		if(this.getPosts.length > 0){
@@ -35,6 +35,10 @@ export class ProfileComponent implements OnInit {
       		this.feeds = newObj;
     	}
   	}
+    unfollowUser(event){
+      let userToBeUnfollowed = event.target.id;
+      this.userUnfollowService.unfollowUser(userToBeUnfollowed);
+    }
 
   	loadPhotos(){
     	if(this.getPhotos.length > 0){

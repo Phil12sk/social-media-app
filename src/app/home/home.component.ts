@@ -83,7 +83,8 @@ export class HomeComponent implements OnInit {
       },
       profileImage: localStorage.getItem('userProfileImage'),
       post: this.postsUser = {
-        user: localStorage.getItem('userLogged'),
+        userEmail: localStorage.getItem('userLogged'),
+        userName: localStorage.getItem('userName'),
         post: this.getPosts[this.userLogged]
       }
     }
