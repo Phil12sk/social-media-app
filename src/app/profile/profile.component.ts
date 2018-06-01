@@ -41,13 +41,13 @@ export class ProfileComponent implements OnInit {
 
   	loadPhotos(){
     	if(this.getPhotos.length > 0){
-      		let jsonPhotos = JSON.parse(this.getPhotos);
-      		let newObj: any = []
-      		for(let i = (jsonPhotos.length - 1); i >= 0; i--){
-      			if(jsonPhotos[i]['user'] == this.perfilChoosed)
-        		newObj.push(jsonPhotos[i])
-      		}
-      		this.photos = newObj;
+    		let jsonPhotos = JSON.parse(this.getPhotos);
+    		let newObj: any = []
+    		for(let i = (jsonPhotos.length - 1); i >= 0; i--){
+    			if(jsonPhotos[i]['user'] == this.perfilChoosed)
+      		newObj.push(jsonPhotos[i])
+    		}
+    		this.photos = newObj;
     	}
   	}
 
