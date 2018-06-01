@@ -14,6 +14,7 @@ import { LoginService } from '../_services/login.service';
 export class PhotosComponent implements OnInit {
   public photo: Photo
   public photos: any;
+  public userLogged = localStorage.getItem('userLogged');
   constructor(
     public router: Router, 
     public alertComponent: AlertComponent,
@@ -60,11 +61,14 @@ export class PhotosComponent implements OnInit {
   ngOnInit() {
     this.checkUserLogged();
     let getPhotos = localStorage.getItem('photosUser');
+    console.log(JSON.parse(getPhotos))
     if(getPhotos.length > 0){
       let jsonPhotos = JSON.parse(getPhotos);
       let newObj: any = []
       for(let i = (jsonPhotos.length - 1); i >= 0; i--){
-        newObj.push(jsonPhotos[i])
+        if(jsonPhotos[i]['user']==this.userLogged){
+          newObj.push(jsonPhotos[i])
+        }
       }
       this.photos = newObj;
     }
