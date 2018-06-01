@@ -18,7 +18,7 @@ export class FollowComponent implements OnInit {
 
   loadFollowing(){
     let userInfos = JSON.parse(localStorage.getItem('userInfos'));
-    let usersUnfollowed = JSON.parse(localStorage.getItem('usersUnfollowed'));
+    let usersUnfollowed = localStorage.getItem('usersUnfollowed');
     let newObj = [];
     for(let i = 0; i < userInfos.length; i++){
       if(this.userLogged != userInfos[i]['login']['email']){
@@ -30,6 +30,20 @@ export class FollowComponent implements OnInit {
       }
     }
     this.users = newObj;
+    if(usersUnfollowed.length > 0){
+      let usersUnfollowedJson = JSON.parse(usersUnfollowed)
+      if(usersUnfollowedJson.length > 0){
+        for(let i = 0; i < usersUnfollowedJson.length; i++){
+          console.log(this.users[i]['userEmail'])
+          console.log(usersUnfollowedJson['userUnfolllowed'])   
+        }
+      }else{
+        console.log(this.users)
+        console.log(usersUnfollowedJson['userUnfolllowed'])
+        delete this.users[usersUnfollowedJson['userUnfolllowed']]
+        console.log(this.users)
+      }
+    }
   }
 
   perfilChoosed(event){
