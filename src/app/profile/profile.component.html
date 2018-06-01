@@ -1,11 +1,21 @@
 <div class="container-fluid serasa-padding-top-3">
     <div class="row">
         <div class="col-lg-1 col-md-12 col-sm-12"></div>
-        <div class="col-lg-10 col-md-12 col-sm-12">
+        <div class="col-lg-6 col-md-12 col-sm-12">
             <div class="text-center social-padding-top-3">
                 <img class="social-profileImg" alt="" #image id="image" src="{{userProfile?.profileImage}}"/><br>
                 <h3 class="social-h3"><strong>{{userProfile?.name}}</strong></h3>
                 <p>{{userProfile?.login.email}}</p>
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="text-center social-padding-top-3">
+                <a href="" style="color: #000000; font-size: 1.5rem" [routerLink]="['/following']">
+                    <i class="fas fa-arrow-alt-circle-left"></i>
+                </a><br>
+                <a href="" style="color: #000000; font-size: 1.5rem" [routerLink]="['/']">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
             </div>
         </div>
     </div>
