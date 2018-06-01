@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-1 col-md-12 col-sm-12"></div>
         <div class="col-lg-10 col-md-12 col-sm-12">
-            <div class="text-center">
+            <div class="text-center social-padding-top-3">
                 <img class="social-profileImg" alt="" #image id="image" src="{{userProfile?.profileImage}}"/><br>
                 <h3 class="social-h3"><strong>{{userProfile?.name}}</strong></h3>
                 <p>{{userProfile?.login.email}}</p>
@@ -43,16 +43,16 @@
     </div>
     <div class="row social-padding-top-3">
         <div class="col-lg-6">
-            <h2 class="social-h2">{{userProfile?.name}}' photos</h2>
-            <div class="row">
+            <h2 class="social-h2">Photos</h2>
+            <div class="row text-center">
                 <div class="col-lg-6 social-padding-bottom-1" *ngFor="let photo of photos">
                     <img class="img social-padding-bottom-0" style="border-radius: 20px;" alt="" src="{{photo?.photo}}"/>
                 </div>
             </div>
         </div>
         <div class="col-lg-6">
-            <h2 class="social-h2">{{userProfile?.name}}' posts</h2>
-            <div class="row">
+            <h2 class="social-h2">Posts</h2>
+            <div class="row text-center">
                 <div class="col-lg-12 social-padding-bottom-1" *ngFor="let feed of feeds">
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
