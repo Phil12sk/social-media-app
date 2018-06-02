@@ -37,7 +37,9 @@ export class HomeComponent implements OnInit {
 
   postText(){
     let d = new Date();
-    let currentTime = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear() + " at " + d.getHours()+":"+d.getMinutes()+":"+d.getSeconds()
+    let h = (d.getHours()<10?'0':'')+d.getHours();
+    let m = (d.getMinutes()<10?'0':'')+d.getMinutes();
+    let currentTime = (d.getMonth() + 1) + "/" + d.getDate() + "/" + d.getFullYear() + " at " + h + ":" + m
     if(this.model.post != ""){
       this.postsService.sendPost(this.userProfile.name, this.model.post, currentTime);
     }else{
