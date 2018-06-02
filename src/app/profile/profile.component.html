@@ -28,8 +28,7 @@
                 type="button" 
                 #{{userProfile?.login.email}}
                 id="{{userProfile?.login.email}}"
-                (click)="unfollowUser($event);"
-                [routerLink]="['/following']">
+                (click)="followUnfollowUser($event);">
                 {{checkFollow}}
             </button>
         </div>
