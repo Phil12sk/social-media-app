@@ -61,7 +61,6 @@ export class PhotosComponent implements OnInit {
   ngOnInit() {
     this.checkUserLogged();
     let getPhotos = localStorage.getItem('photosUser');
-    console.log(JSON.parse(getPhotos))
     if(getPhotos.length > 0){
       let jsonPhotos = JSON.parse(getPhotos);
       let newObj: any = []
