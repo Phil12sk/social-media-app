@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     }
 
     if(this.login.email == "" || this.login.password == ""){
-      let mes = '<p style="color:red;">Please, fill the fields "Email" and "Password"</p>'
+      let mes = '<p style="color:#EA4335;">You must fill the fields "email" and "password" to log in</p>'
       this.alertComponent.showAlert(mes);
     }else{
       let count = 0;
@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           count++
         }else{
           if(this.login.password != atob(existingUser[i]['password'])){
-            let mes = '<p style="color:red;">Wrong email or password</p>'
+            let mes = '<p style="color:#EA4335;">Wrong email or password, please, check it again</p>'
             this.alertComponent.showAlert(mes);
           }else{
             localStorage.setItem('userLogged', this.login.email);
@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
         }
       }
       if(count == existingUser.length){
-        let mes = '<p style="color:red;">Wrong email, please, check it again</p>'
+        let mes = '<p style="color:#EA4335;">Wrong email or password, please, check it again</p>'
         this.alertComponent.showAlert(mes);
       }
     }

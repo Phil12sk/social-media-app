@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserProfile } from '../_models/userProfile.model';
 import { Login } from '../_models/login.model';
 import { Router } from '@angular/router';
+import { LoginService } from '../_services/login.service';
 
 @Component({
   selector: 'app-follow',
@@ -16,7 +17,7 @@ export class FollowComponent implements OnInit {
   public model: any = {};
 
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, public loginService: LoginService) { }
 
   searchUser(){
     this.model.search
@@ -62,6 +63,13 @@ export class FollowComponent implements OnInit {
     }else{
       localStorage.setItem('perfilChoosed', event.target.id);
       this.router.navigate(['/profile'])
+    }
+  }
+
+  checkUserLogged(){
+    let checkLogin = this.loginService.checkUserLogged();
+    if(checkLogin == false){
+      this.router.navigate(["/"])
     }
   }
 

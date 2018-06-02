@@ -3,6 +3,8 @@ import { UserUnfollowService } from '../_services/userUnfollow.service';
 import { UserProfile } from '../_models/userProfile.model';
 import { Login } from '../_models/login.model';
 import { Photo } from '../_models/photo.model';
+import { LoginService } from '../_services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +23,9 @@ export class ProfileComponent implements OnInit {
   	public photos: any;
 
   	constructor(
-  		public userUnfollowService: UserUnfollowService) { }
+		public router: Router,
+		  public userUnfollowService: UserUnfollowService,
+		  public loginService: LoginService) { }
 
   	loadPosts(){
   		if(this.getPosts.length > 0){
@@ -69,7 +73,15 @@ export class ProfileComponent implements OnInit {
 	  			}		
 	  		}
 	  	}
-  	}
+	}
+	  
+	checkUserLogged(){
+		let checkLogin = this.loginService.checkUserLogged();
+		if(checkLogin == false){
+			this.router.navigate(["/login"])
+		}
+	}
+	  
 
   	ngOnInit() {
   		this.loadPosts();

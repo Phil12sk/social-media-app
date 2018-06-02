@@ -25,7 +25,7 @@ export class SafeHtmlPipe implements PipeTransform  {
         
       </div>
       <div class="modal-footer">
-        <button id="btnFechar" type="button" class="btn btn-primary" (click)="close();">Fechar</button>
+        <button id="btnFechar" type="button" class="btn btn-pri" (click)="close();">Close</button>
       </div>
     </div>
   `

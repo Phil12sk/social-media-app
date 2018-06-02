@@ -17,50 +17,6 @@ input{
     padding-top: 4px;
     color: #999999;
 }
-#loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 150px;
-    height: 150px;
-    margin: -75px 0 0 -75px;
-    border: 16px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 16px solid #3498db;
-    width: 120px;
-    height: 120px;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-}
-
-@-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.animate-bottom {
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s
-}
-
-@-webkit-keyframes animatebottom {
-    from { bottom:-100px; opacity:0 } 
-    to { bottom:0px; opacity:1 }
-}
-
-@keyframes animatebottom { 
-    from{ bottom:-100px; opacity:0 } 
-    to{ bottom:0; opacity:1 }
-}
 
 .social-profileImg{
     width: 100px;
@@ -111,59 +67,11 @@ a:hover{
     height:auto!important;
     max-width:100%!important
 }
-.social-input-padding{
-  padding:10px;
-}
-.social-legalfooter-text .social-columns{
-    padding-bottom:0
-}
-.social-columns{
-    clear:both;
-    margin:0 auto;
-    width:980px;
-    padding:0 10px 10px
-}
-.social-columns::after{
-    clear:both;
-    content:' ';
-    display:block;
-    height:0;
-    visibility:hidden;
-    overflow:hidden
-}
-.social-columns .social-columns{
-    margin:0 -10px;
-    padding:0;
-    width:auto
-}
-.social-default .social-columns{
-    padding-left:0
-}
-.social-left{
-    text-align:left!important;
-}
 .social-hide{
     display:none
 }
 .social-radius{
   border-radius: 10px;
-}
-.social-gray-1{
-  color: rgb(102, 102, 102);
-}
-.social-bold{
-    font-weight:600
-}
-.social-light{
-    font-family: "Roboto Medium", "Roboto Regular", "Roboto";
-    font-size: 12px;
-    line-height: normal
-}
-
-.social-light-1{
-    font-family: "Roboto Light", "Roboto Regular", "Roboto";
-    font-size: 12px;
-    line-height: normal
 }
 .social-h1{
     font-size:2.5rem;
@@ -190,29 +98,11 @@ h1,h2,h3,h4,h5,h6{
     line-height:1.625rem;
     font-weight:normal;
 }
-.social-textcolor-blue-50{
-    color:#2e5485
-}
-.social-gray-10{
-  color: rgb(102, 102, 102);
-}
+
 p{
     font-size:1rem;
     line-height:1.625rem;
     padding:0 0 15px;
-}
-a{
-    color:#3b6caa;
-    text-decoration:none
-}
-a::before,a::after{
-    text-decoration:underline
-}
-a::before,a::after{
-    text-decoration:none
-}
-a:hover{
-    text-decoration:underline
 }
 .social-padding-top-0{
     padding-top:0!important
@@ -237,10 +127,6 @@ a:hover{
 }
 .social-padding-bottom-3{
     padding-bottom:60px!important
-}
-.social-padding-content{
-    box-sizing:border-box;
-    padding:20px
 }
 
 .has-float-label {

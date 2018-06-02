@@ -31,10 +31,6 @@ export class HomeComponent implements OnInit {
     this.router.navigate(["/photos"]);
   }
 
-  erasePostArea(){
-    this.model.post = "";
-  }
-
   postText(){
     let d = new Date();
     let h = (d.getHours()<10?'0':'')+d.getHours();
@@ -43,7 +39,7 @@ export class HomeComponent implements OnInit {
     if(this.model.post != ""){
       this.postsService.sendPost(this.userProfile.name, this.model.post, currentTime);
     }else{
-      let mes = '<p style="color:red;">Please, fill the textarea field to post something</p>';
+      let mes = '<p style="color:#EA4335;">You must type something to post. Check it again, please</p>';
       this.alertComponent.showAlert(mes)
     }
     this.model.post = ""; 
