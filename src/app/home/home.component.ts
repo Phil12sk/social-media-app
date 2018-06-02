@@ -48,11 +48,23 @@ export class HomeComponent implements OnInit {
   }
 
   loadPosts(){
+    let usersUnfollowed = localStorage.getItem('usersUnfollowed');
+    let newObj: any = [];
     if(this.getPosts.length > 0){
       let jsonPosts = JSON.parse(this.getPosts);
-      let newObj: any = []
-      for(let i = (jsonPosts.length - 1); i >= 0; i--){
-        newObj.push(jsonPosts[i])
+      if(usersUnfollowed.length > 0){
+        let usersUnfollowedJson = JSON.parse(usersUnfollowed);
+        for(let i = (jsonPosts.length - 1); i >= 0; i--){
+          if(jsonPosts[i]['userEmail'] != usersUnfollowedJson['userUnfolllowed']){
+            console.log(jsonPosts.length);
+            console.log(usersUnfollowedJson['userUnfolllowed']);
+            newObj.push(jsonPosts[i]);    
+          }
+        }
+      }else{
+        for(let i = (jsonPosts.length - 1); i >= 0; i--){
+          newObj.push(jsonPosts[i]);
+        }
       }
       this.feeds = newObj;
     }
@@ -74,7 +86,6 @@ export class HomeComponent implements OnInit {
     this.model.post = "";
     localStorage.setItem('firstAccess', 'true');
     this.checkUserLogged();
-    this.loadPosts();
     this.userProfile = {
       name: localStorage.getItem('userName'),
       login: this.loginUser = {

@@ -24,7 +24,6 @@ export class FollowComponent implements OnInit {
       if(this.userLogged != userInfos[i]['login']['email']){
         if(usersUnfollowed.length > 0){
           let usersUnfollowedJson = JSON.parse(usersUnfollowed);
-          console.log(usersUnfollowedJson);
           if(usersUnfollowedJson['userUnfolllowed'] != userInfos[i]['login']['email']){
             let item = {}
             item['profileImage'] = userInfos[i]['profileImage'];
