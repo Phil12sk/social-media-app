@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
 	public login: Login;
 	public photo: Photo
 	public feeds: any;
+	public checkFollow: any;
   	public photos: any;
 
   	constructor(
@@ -66,10 +67,23 @@ export class ProfileComponent implements OnInit {
 	  	}
   	}
 
-  ngOnInit() {
-  	this.loadPosts();
-  	this.loadPhotos();
-  	this.loadUser();
-  }
+  	ngOnInit() {
+  		this.loadPosts();
+  		this.loadPhotos();
+		this.loadUser();
+		if(localStorage.getItem('usersUnfollowed').length > 0){
+			let getUsersUnfollowed = JSON.parse(localStorage.getItem('usersUnfollowed'));
+			console.log(getUsersUnfollowed['userUnfolllowed']);
+			console.log(this.perfilChoosed)
+			if(getUsersUnfollowed['userUnfolllowed'] == this.perfilChoosed){
+				this.checkFollow = "Follow"
+			}else{
+				this.checkFollow = "Unfollow"
+			}
+		}else{
+			this.checkFollow = "Unfollow"
+		}
+  
+}
 
 }

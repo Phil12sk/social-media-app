@@ -92,7 +92,10 @@ p,h1,h2,h3,h4{
 a:hover{
     text-decoration-line: none;
 }
-
+.social-img{
+    width: 110px;
+    height: 110px;
+}
 .img {
     position: relative;
     float: left;

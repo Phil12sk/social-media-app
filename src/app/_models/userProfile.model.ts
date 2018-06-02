@@ -7,5 +7,6 @@ export interface UserProfile{
     login?: Login,
     profileImage?: string,
     photos?: Photo,
-    post?: Post
+    post?: Post,
+    unfollowed?: string
 }

@@ -22,28 +22,26 @@ export class FollowComponent implements OnInit {
     let newObj = [];
     for(let i = 0; i < userInfos.length; i++){
       if(this.userLogged != userInfos[i]['login']['email']){
-        let item = {}
-        item['profileImage'] = userInfos[i]['profileImage'];
-        item['name'] = userInfos[i]['name'];
-        item['userEmail'] = userInfos[i]['login']['email'];
-        newObj.push(item);
+        if(usersUnfollowed.length > 0){
+          let usersUnfollowedJson = JSON.parse(usersUnfollowed);
+          console.log(usersUnfollowedJson);
+          if(usersUnfollowedJson['userUnfolllowed'] != userInfos[i]['login']['email']){
+            let item = {}
+            item['profileImage'] = userInfos[i]['profileImage'];
+            item['name'] = userInfos[i]['name'];
+            item['userEmail'] = userInfos[i]['login']['email'];
+            newObj.push(item);
+          }
+        }else{
+          let item = {}
+          item['profileImage'] = userInfos[i]['profileImage'];
+          item['name'] = userInfos[i]['name'];
+          item['userEmail'] = userInfos[i]['login']['email'];
+          newObj.push(item);
+        }
       }
     }
     this.users = newObj;
-    if(usersUnfollowed.length > 0){
-      let usersUnfollowedJson = JSON.parse(usersUnfollowed)
-      if(usersUnfollowedJson.length > 0){
-        for(let i = 0; i < usersUnfollowedJson.length; i++){
-          console.log(this.users[i]['userEmail'])
-          console.log(usersUnfollowedJson['userUnfolllowed'])   
-        }
-      }else{
-        console.log(this.users)
-        console.log(usersUnfollowedJson['userUnfolllowed'])
-        delete this.users[usersUnfollowedJson['userUnfolllowed']]
-        console.log(this.users)
-      }
-    }
   }
 
   perfilChoosed(event){
