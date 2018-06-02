@@ -13,8 +13,20 @@ export class FollowComponent implements OnInit {
   public userLogged = localStorage.getItem('userLogged');
   public loginUser: Login;
   public users: any;
+  public model: any = {};
+
 
   constructor(public router: Router) { }
+
+  searchUser(){
+    this.model.search
+    let userInfos = JSON.parse(localStorage.getItem('userInfos'));
+    for(let i = 0; i <  userInfos.length; i++){
+      if(userInfos[i]['login']['email'] == this.model.search){
+        this.perfilChoosed(this.model.search, 1);
+      }
+    }
+  }
 
   loadFollowing(){
     let userInfos = JSON.parse(localStorage.getItem('userInfos'));
@@ -24,7 +36,7 @@ export class FollowComponent implements OnInit {
       if(this.userLogged != userInfos[i]['login']['email']){
         if(usersUnfollowed.length > 0){
           let usersUnfollowedJson = JSON.parse(usersUnfollowed);
-          if(usersUnfollowedJson['userUnfolllowed'] != userInfos[i]['login']['email']){
+          if(usersUnfollowedJson['userUnfollowed'] != userInfos[i]['login']['email']){
             let item = {}
             item['profileImage'] = userInfos[i]['profileImage'];
             item['name'] = userInfos[i]['name'];
@@ -43,13 +55,19 @@ export class FollowComponent implements OnInit {
     this.users = newObj;
   }
 
-  perfilChoosed(event){
-    localStorage.setItem('perfilChoosed', event.target.id);
-    this.router.navigate(['/profile'])
+  perfilChoosed(event, action){
+    if(action == 1){
+      localStorage.setItem('perfilChoosed', event);
+      this.router.navigate(['/profile'])
+    }else{
+      localStorage.setItem('perfilChoosed', event.target.id);
+      this.router.navigate(['/profile'])
+    }
   }
 
   ngOnInit() {
-    this.loadFollowing()
+    this.loadFollowing();
+    this.model.search = "";
     this.userProfile = {
       name: localStorage.getItem('userName'),
       login: this.loginUser = {
@@ -58,5 +76,4 @@ export class FollowComponent implements OnInit {
       profileImage: localStorage.getItem('userProfileImage'),
     }
   }
-
 }

@@ -36,10 +36,12 @@ export class ProfileComponent implements OnInit {
     	}
   	}
 	followUnfollowUser(event){
-		let x = localStorage.getItem('userUnfollowed')
-		console.log(x);
-      	let userToBeUnfollowed = event.target.id;
-      	this.userUnfollowService.unfollowUser(userToBeUnfollowed);
+		let userId = event.target.id;
+		if(this.checkFollow == "Follow"){
+			this.userUnfollowService.followUser(userId)
+		}else{
+			this.userUnfollowService.unfollowUser(userId);
+		}
     }
 
   	loadPhotos(){
@@ -75,7 +77,7 @@ export class ProfileComponent implements OnInit {
 		this.loadUser();
 		if(localStorage.getItem('usersUnfollowed').length > 0){
 			let getUsersUnfollowed = JSON.parse(localStorage.getItem('usersUnfollowed'));
-			if(getUsersUnfollowed['userUnfolllowed'] == this.perfilChoosed){
+			if(getUsersUnfollowed['userUnfollowed'] == this.perfilChoosed){
 				this.checkFollow = "Follow"
 			}else{
 				this.checkFollow = "Unfollow"

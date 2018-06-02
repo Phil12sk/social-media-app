@@ -3,8 +3,6 @@ import { Login } from '../_models/login.model';
 
 export class InitialInfos {
     public userProfile: any
-    public userProfile1: UserProfile
-    public userProfile2: UserProfile
     public login: Login
     public model: any = {}
     constructor(){}

@@ -1,3 +1,3 @@
 export interface UserUnfollow {
-	userUnfolllowed?: string
+	userUnfollowed?: string
 }

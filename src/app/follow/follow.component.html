@@ -11,14 +11,42 @@
   </div>
   <div class="row social-padding-top-3">
     <div class="col-lg-4 text-center" *ngFor="let user of users">
-      <img src="{{user?.profileImage}}" id="{{user?.userEmail}}" class="social-profileImg" alt=""/>
-      <h4 class="social-h4 social-padding-top-1" id="{{user?.userEmail}}"><strong>{{user?.name}}</strong></h4>
+      <img src="{{user?.profileImage}}" class="social-profileImg" alt=""/>
+      <h4 class="social-h4 social-padding-top-1"><strong>{{user?.name}}</strong></h4>
       <button 
         class="btn btn-sec"
         type="button"
         id="{{user?.userEmail}}"
         (click)="perfilChoosed($event);">
         View profile</button>
+    </div>
+  </div>
+  <div class="row social-padding-top-3">
+    <div class="col-lg-4">
+      <h3 class="social-h3">Find any user</h3>
+    </div>
+  </div>
+  <div class="row social-padding-top-1">
+    <div class="col-lg-4">
+      <div class="form-group">
+        <span class="form-group has-float-label">
+          <input 
+            class="form-control serasa-input-padding serasa-radius"
+            [(ngModel)]="model.search"
+            name="search"
+            #search="ngModel"
+            id="search"
+            type="text"
+            placeholder=" "
+          />
+          <label for="search" class="input-styles">Type user you want to find</label>
+        </span>
+      </div>
+      <button 
+        class="btn btn-sec"
+        type="button"
+        (click)="searchUser($event);">
+        Find</button>
     </div>
   </div>
 </div>

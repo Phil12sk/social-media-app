@@ -55,9 +55,7 @@ export class HomeComponent implements OnInit {
       if(usersUnfollowed.length > 0){
         let usersUnfollowedJson = JSON.parse(usersUnfollowed);
         for(let i = (jsonPosts.length - 1); i >= 0; i--){
-          if(jsonPosts[i]['userEmail'] != usersUnfollowedJson['userUnfolllowed']){
-            console.log(jsonPosts.length);
-            console.log(usersUnfollowedJson['userUnfolllowed']);
+          if(jsonPosts[i]['userEmail'] != usersUnfollowedJson['userUnfollowed']){
             newObj.push(jsonPosts[i]);    
           }
         }
