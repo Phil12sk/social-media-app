@@ -22,7 +22,23 @@ export class PhotosComponent implements OnInit {
     public loginService: LoginService
   ) { }
   changeListener($event) : void {
-    this.readThis($event.target);
+    let fileSize = $event.target.files[0].size;
+    let fileType = $event.target.files[0].name.split('.')[1];
+    console.log(fileSize);
+    console.log(fileType)
+    if(fileSize > 1024000){
+      let mes = '<p style="color:#EA4335;">Files can not be bigger than 1MB</p>';
+      this.alertComponent.showAlert(mes);
+      (<HTMLInputElement>document.getElementById('openPhotoSelection')).value = ""
+    }else{
+      if(fileType == "png" || fileType == "jpg" || fileType == "jpeg"){
+        this.readThis($event.target);
+      }else{
+        let mes = '<p style="color:#EA4335;">Only files with extensions .png, .jpeg or .jpg will be accepted</p>';
+        this.alertComponent.showAlert(mes);
+        (<HTMLInputElement>document.getElementById('openPhotoSelection')).value = ""
+      }
+    }
   }
 
   readThis(inputValue: any) : void {
