@@ -9,6 +9,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 3rd: After the 2nd step has been done, run the application with the command line "ng serve" or "npm start" and go to the browse on the path "localhost:4200"
 
-4th: There are 2 users that can be used to log in.
-User: tony@stark.com / password: iron_man
-User: thor@asgard.com / password: the_best
+4th: There are 2 users that can be used to log in:
+
+User1: tony@stark.com / password: iron_man
+
+User2: thor@asgard.com / password: the_best
